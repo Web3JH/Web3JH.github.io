@@ -5,6 +5,7 @@ import { Menu, X, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { publicAsset } from '@/lib/publicAsset';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,7 +31,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* <Link href="/" className="flex items-center space-x-2"> */}
-          <img src="Web3JH_Logo_Black-no-bg 1.png" alt="Web3JH Logo" width={110}
+          <img src={publicAsset('Web3JH_Logo_Black-no-bg 1.png')} alt="Web3JH Logo" width={110}
               height={110} />
           {/* </Link> */}
           

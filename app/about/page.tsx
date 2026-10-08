@@ -8,6 +8,7 @@ import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import { publicAsset } from '@/lib/publicAsset';
 
 export default function About() {
   const values = [
@@ -184,7 +185,7 @@ export default function About() {
 
                 <div className="flex justify-center">
                   <Image 
-                    src="Web3 JharkhandHomePage.png"
+                    src={publicAsset('Web3 JharkhandHomePage.png')}
                     alt="Web3 Jharkhand community members at Web3 conference in Ranchi, Jharkhand - largest Web3 community in the state"
                     priority={true}
                     loading="eager"
@@ -282,7 +283,7 @@ export default function About() {
               </div>
               <div className="relative mt-8">
                 <img
-                  src="core-team.jpg"
+                  src={publicAsset('core-team.jpg')}
                   alt="Web3 Jharkhand core team members including founder Subham Surana and leadership team at community meetup"
                   className="rounded-lg shadow-xl"
                 />
@@ -327,7 +328,7 @@ export default function About() {
               {team.map((member, index) => (
                 <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow duration-300">
                   <img
-                    src={member.image}
+                    src={publicAsset(member.image)}
                     alt={member.name}
                     className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
                   />

@@ -9,6 +9,7 @@ import Navigation from '@/components/Navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { publicAsset } from '@/lib/publicAsset';
 
 export default function Community() {
 
@@ -28,7 +29,7 @@ export default function Community() {
           const img = new window.Image();
           img.onload = resolve;
           img.onerror = reject;
-          img.src = src;
+          img.src = publicAsset(src);
         });
       });
   
@@ -368,7 +369,7 @@ export default function Community() {
                       /> */}
                       {!imageErrors.has(partner.src) ? (
                           <Image
-                            src={partner.src}
+                            src={publicAsset(partner.src)}
                             alt={partner.alt}
                             width={320}
                             height={170}
@@ -398,7 +399,7 @@ export default function Community() {
               <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300">
                 <div className="text-center">
                   <img
-                    src={partner.logo}
+                    src={publicAsset(partner.logo)}
                     alt={partner.name}
                     className="w-16 h-16 mx-auto mb-4 rounded-lg object-cover"
                   />

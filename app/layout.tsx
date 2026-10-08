@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
+import { publicAsset } from '@/lib/publicAsset';
 import {
   Instagram,
   Twitter,
@@ -72,7 +73,7 @@ export const metadata: Metadata = {
     url: 'https://web3jh.xyz',
     images: [
       {
-        url: '/preview.png',
+        url: publicAsset('/preview.png'),
         width: 1200,
         height: 630,
         alt: 'Web3JH Community',
@@ -84,7 +85,7 @@ export const metadata: Metadata = {
     title: 'Web3JH | India\'s Leading Web3 & Blockchain Community',
     description: 'Web3JH is India\'s leading Web3 & Blockchain community based in Jharkhand — empowering developers, startups, and crypto natives to build decentralized applications and shape the future of the internet.',
     creator: "Subham Surana",
-    images: ['/preview.png']
+    images: [publicAsset('/preview.png')]
   },
 };
 
@@ -110,7 +111,7 @@ export default function RootLayout({
                   </div> */}
                   <div className="w-12 h-12 rounded-lg flex items-center justify-center relative">
                     <Image 
-                      src="/Web3JH_Logo_White-no-bg 2.png" 
+                      src={publicAsset('/Web3JH_Logo_White-no-bg 2.png')}
                       alt="Web3JH Logo"
                       fill
                       className="object-contain"

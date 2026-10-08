@@ -9,6 +9,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Navigation from '@/components/Navigation';
 import { motion } from 'framer-motion';
+import { publicAsset } from '@/lib/publicAsset';
 
 export default function Home() {
 
@@ -28,7 +29,7 @@ export default function Home() {
         const img = new window.Image();
         img.onload = resolve;
         img.onerror = reject;
-        img.src = src;
+        img.src = publicAsset(src);
       });
     });
 
@@ -207,7 +208,7 @@ export default function Home() {
 
         <div className="absolute inset-0 z-0">
           <Image
-            src="/Asset 1 21.png"
+            src={publicAsset('/Asset 1 21.png')}
             alt="Hero Globe"
             // className="w-full h-full object-cover object-center"
             fill
@@ -301,12 +302,12 @@ export default function Home() {
 
             <div className="flex justify-center -mt-2">
               {/* <img
-                src="/Web3 JharkhandHomePage.png"
+                src={publicAsset('/Web3 JharkhandHomePage.png')}
                 alt="Web3 Jharkhand Community"
                 className="w-full h-full object-cover"
               /> */}
               <Image
-                src="/Web3 JharkhandHomePage.png"
+                src={publicAsset('/Web3 JharkhandHomePage.png')}
                 alt="Web3JH community members collaborating on blockchain projects in Jharkhand"
                 width={600}
                 height={400}
@@ -489,7 +490,7 @@ export default function Home() {
                         }}
                       >
                         <img
-                          src={src}
+                          src={publicAsset(src)}
                           alt={`Partner ${idx % images.length}`}
                           style={{
                             width: '95%',
@@ -564,7 +565,7 @@ export default function Home() {
                       /> */}
                       {!imageErrors.has(partner.src) ? (
                           <Image
-                            src={partner.src}
+                            src={publicAsset(partner.src)}
                             alt={partner.alt}
                             width={320}
                             height={170}
@@ -623,7 +624,7 @@ export default function Home() {
                 {/* Left: Image */}
                 <div className="flex-1 lg:flex-initial lg:w-2/5">
                   <Image
-                    src="/avax_rnc1.webp"
+                    src={publicAsset('/avax_rnc1.webp')}
                     alt="Web3JH team at Avalanche event - supporting blockchain innovation in Jharkhand"
                     width={500}
                     height={400}

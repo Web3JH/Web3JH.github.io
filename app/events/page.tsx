@@ -1133,6 +1133,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Navigation from '@/components/Navigation';
+import { publicAsset } from '@/lib/publicAsset';
 import Link from 'next/link';
 import Image from 'next/image';
 import NextImage from 'next/image'
@@ -1231,7 +1232,7 @@ const OptimizedImage = memo(({
         // Only render Image component when in view or priority
         isInView && (
           <Image
-            src={`/${src}`}
+            src={publicAsset(src)}
             alt={alt}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
@@ -1244,7 +1245,7 @@ const OptimizedImage = memo(({
             quality={75} // Reduced from 85 for faster loading
             placeholder="blur"
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGw0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-            unoptimized={false}
+            unoptimized
             {...props}
           />
         )
@@ -1279,7 +1280,7 @@ const EventCard = memo(({
     // Preload current image immediately
     if (event.images[imageIndex] && !preloadedImages.has(event.images[imageIndex])) {
       const img = new window.Image();
-      img.src = `/${event.images[imageIndex]}`;
+      img.src = publicAsset(event.images[imageIndex]);
       img.onload = () => {
         setPreloadedImages(prev => new Set(prev).add(event.images[imageIndex]));
       };
@@ -1296,7 +1297,7 @@ const EventCard = memo(({
       
       if (nextImage && !preloadedImages.has(nextImage)) {
         const img = new window.Image();
-        img.src = `/${nextImage}`;
+        img.src = publicAsset(nextImage);
         img.onload = () => {
           setPreloadedImages(prev => new Set(prev).add(nextImage));
         };
